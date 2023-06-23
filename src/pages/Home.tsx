@@ -1,19 +1,16 @@
-import { getPodcasts, getEpisodes } from "../services/podcasts";
+import Search from "../components/Search";
+import PodcastList from "../components/PodcastList";
+import { usePodcastList } from "../hooks/usePodcastList";
 
 function Home() {
 
-  const fetchData = async () => {
-    const podcasts = await getPodcasts()
-    console.log(podcasts)
-    if(podcasts.length) {
-      const episodes = await getEpisodes(podcasts[0].id)
-      console.log(episodes)
-    }
-  }
-  fetchData()
+  const { allPodcasts } = usePodcastList()
 
   return (
-    <div>Home</div>
+    <>
+      <Search podcasts={allPodcasts} />
+      <PodcastList podcasts={allPodcasts} />
+    </>
   )
 }
 

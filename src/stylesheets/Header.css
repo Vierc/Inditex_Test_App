@@ -1,0 +1,18 @@
+.header {
+  padding: 10px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.headerContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+h1 {
+  display: inline;
+  color: #477cbd;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
