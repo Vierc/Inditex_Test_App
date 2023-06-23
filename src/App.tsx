@@ -11,7 +11,7 @@ const App = () => {
       <main className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/podcast" element={<Podcast />} />
+          <Route path="/podcast/:podcastId" element={<Podcast />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

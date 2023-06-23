@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { setFilter } from "../store/features/filterSlice";
+import { useAppDispatch, useAppSelector } from "../store/store";
 import { Podcast } from "../types";
+import i18n from "../i18n/index";
 import "../stylesheets/Search.css";
 
 interface Props {
@@ -8,9 +10,11 @@ interface Props {
 
 const Search = ({podcasts}: Props) => {
 
-  const [input, setInput] = useState('')
+  const { filterText } = useAppSelector(state => state.podcastFilter)
+  const dispatch = useAppDispatch()
+
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(evt.target.value)
+    dispatch(setFilter(evt.target.value))
   }
 
   return(
@@ -21,9 +25,10 @@ const Search = ({podcasts}: Props) => {
         type="text" 
         name="search"
         onChange={handleChange}
-        value={input} 
-        placeholder="Search"
+        value={filterText} 
+        placeholder={i18n.HOME.SEARCH_PLACEHOLDER} 
         aria-label="Search"
+        autoComplete="off"
       />
     </div>
   );

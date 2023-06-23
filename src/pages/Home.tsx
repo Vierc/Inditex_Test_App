@@ -4,12 +4,12 @@ import { usePodcastList } from "../hooks/usePodcastList";
 
 function Home() {
 
-  const { allPodcasts } = usePodcastList()
+  const { podcasts } = usePodcastList()
 
   return (
     <>
-      <Search podcasts={allPodcasts} />
-      <PodcastList podcasts={allPodcasts} />
+      <Search podcasts={podcasts} />
+      <PodcastList podcasts={podcasts} />
     </>
   )
 }
