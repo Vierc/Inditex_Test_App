@@ -8,7 +8,6 @@ const EpisodePlayer = () => {
   const { episodeId } = useParams();
   const { episodes } = useAppSelector(state => state.episodes)
   const episode = episodes.filter( episode => episode.id === episodeId )[0] || {} as Episode
-  console.log(episode.description)
 
   return(
     <div>

@@ -1,4 +1,8 @@
-# Inditext Hiring Test
+# Inditex Hiring Test
+This is a test project for a recruitment process that simulates a web app to listen to the 100 most popular podcasts according to the Apple list.
+This project was bootstrapped with [Webpack](https://webpack.js.org/) and [react-redux](https://github.com/reduxjs/react-redux), [react-router-dom](https://github.com/remix-run/react-router) and [axios](https://github.com/axios/axios) libraries.
+
+In order to make requests to the external api, it is necessary to access external services that do not provide JSONP or CORS headers. To do this, the API calls use [allOrigins](https://allorigins.win/).
 
 ## Runs the app in the development mode.
 
@@ -31,4 +35,3 @@ In the project directory, you can run:
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
