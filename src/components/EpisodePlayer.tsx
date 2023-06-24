@@ -8,12 +8,13 @@ const EpisodePlayer = () => {
   const { episodeId } = useParams();
   const { episodes } = useAppSelector(state => state.episodes)
   const episode = episodes.filter( episode => episode.id === episodeId )[0] || {} as Episode
+  console.log(episode.description)
 
   return(
     <div>
       <div className="box-shadow episodeBox">
         <h3>{episode.name}</h3>
-        <p className="episodeDescription" dangerouslySetInnerHTML={{__html: episode.description}}></p>
+        <div className="episodeDescription" dangerouslySetInnerHTML={{__html: episode.description}}></div>
         <hr/>
         <audio controls className="episodePlayer">
           <source id="audioPlayer" src={episode.url} type="audio/mpeg" />

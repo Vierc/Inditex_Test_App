@@ -47,7 +47,7 @@ const mapEpisodesFromApiResponse = (apiResponse: EpisodesResponseFromApi): Array
     const episode = {
       id: apiEpisode.trackId.toString(),
       name: apiEpisode.trackName,
-      description: apiEpisode.description,
+      description: addUrlTagInString(apiEpisode.description),
       url: apiEpisode.episodeUrl,
       date: date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear(),
       duration: msToStringTime(apiEpisode.trackTimeMillis)
@@ -56,7 +56,14 @@ const mapEpisodesFromApiResponse = (apiResponse: EpisodesResponseFromApi): Array
   })
 }
 
-function msToStringTime(duration: number) {
+const addUrlTagInString = (content: string) => {
+  var urlRegex: RegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/ig;
+  return content.replace(urlRegex, function(url) {
+    return '<a href="' + url + '" target="_blank">' + url + '</a>';
+  })
+}
+
+const msToStringTime = (duration: number) => {
   let seconds = Math.floor((duration / 1000) % 60),
     minutes = Math.floor((duration / (1000 * 60)) % 60),
     hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
