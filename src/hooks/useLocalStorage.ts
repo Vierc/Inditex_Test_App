@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const EXPIRATION_TIME_IN_SECONDS = parseInt(process.env.LOCAL_STORAGE_EXPIRATION_TIME_IN_SECONDS)
+const EXPIRATION_TIME_IN_SECONDS = parseInt(process.env.LOCAL_STORAGE_EXPIRATION_TIME_IN_SECONDS || '86400')
 
 export function useLocalStorage (key: string, initialValue: any) {
 

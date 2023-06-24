@@ -1,8 +1,8 @@
 import axios from "axios";
 import { Episode, EpisodesResponseFromApi, Podcast, PodcastsResponseFromApi } from "../types";
 
-const apiPodcastsUrl = process.env.API_PODCASTS_URL;
-const apiEpisodesUrl = process.env.API_EPISODES_URL;
+const apiPodcastsUrl = process.env.API_PODCASTS_URL || "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json"
+const apiEpisodesUrl = process.env.API_EPISODES_URL || "https://itunes.apple.com/"
 
 export const getPodcasts = async () => {
   const apiResponse = await fetchPodcasts();
